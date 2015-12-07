@@ -1,0 +1,31 @@
+<!--Header for this Projects page -->
+<div class="container" id="projects">
+    <h1>Projects</h1>
+    <hr>
+    <p class="flow-text">Below are projects that I have worked on over the years. Click on the photo for more information or follow the link to go to the actual project (if a website).</p>    
+</div>
+
+<!--Makes cards and repeats for each data point -->
+<div class="row">
+    <div class="col s12 m12 l6" ng-repeat="projects in projects">
+        <div class="card large">
+            <div class="card-image z-depth-4">
+              <img src="img/{{projects.Image}}"></img>
+              <span class="card-title grey-text text-darken-2 center-align" id="rcorners6">{{projects.Name}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{projects.Description}}</p>
+            </div>
+            <div class="card-action blue-grey lighten-3">
+              <a class="black-text" href="{{projects.Link}}">Link to Project</a>
+            </div>
+        </div>
+    </div>
+
+<!--This is so that the fixed footer doesn't cover the content at the end of this page -->
+  <br></br>
+  <br></br>
+  <p>&nbsp;</p>
+  <br></br>
+  <p>&nbsp;</p>
+</div>
