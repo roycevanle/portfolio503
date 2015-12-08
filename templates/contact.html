@@ -1,0 +1,47 @@
+<!-- contact html file that displays my contact information as well as giving users the option to leave a message directly on the site (which is loaded through firebase) -->
+
+    <!-- title for this section of the website -->
+<div class="container" id="Contact">
+    <h1>Contact Information</h1>
+    <hr>
+    <p><h2>Please feel free to leave me a message!<h2></p>    
+</div>
+
+    <!-- my contact information -->
+    <div>
+        <p>
+            <i class="fa fa-envelope"></i>
+            <a class="contact" href="mailto:jackw117@uw.edu">royle@uw.edu</a>
+        </p>
+        <p>
+            <i class="fa fa-phone"></i>
+            <a class="contact" href="tel:206-304-0111">206-304-0111</a>
+        </p>
+    </div>
+
+<!-- div containing the form to write messages, and the messages that are currently saved to firebase -->
+<div id="messagesDiv">
+    <div ng-hide="addMessageClick">
+        <button class="btn btn-primary" type="submit" ng-click="addMessageClick = true">Leave a Message</button>
+    </div>
+
+    <div ng-show="addMessageClick">
+        <form name="messageForm">
+            <label for="name">Name:</label>
+            <input id="name" class="form-control" ng-model="name" type="text" required>
+            <label for="message">Message:</label>
+            <textarea id="mesage" class="form-control" ng-model="message" rows="10" required></textarea>
+            <button type="submit" class="btn btn-primary" ng-click="addMessage()" ng-disabled="messageForm.$invalid">Submit</button>
+            <button type="submit" class="btn btn-warning" ng-click="addMessageClick = false; clear()">Cancel</button>
+        </form> 
+    </div>
+
+    <div class="messageContainer">
+        <hr></hr>
+        <h3 ng-hide="messages.length == 0">Previous Messages</h3>
+        <div class="messageDiv" ng-repeat="message in messages">
+            <h4>{{message.name}}</h4>
+            <p class="messageText">{{message.message}}</p>
+        </div>
+    </div>
+</div>

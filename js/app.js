@@ -1,5 +1,5 @@
 var data;
-var myApp = angular.module('myApp', ['ui.router'])
+var myApp = angular.module('myApp', ['ui.router', 'firebase'])
 // Config route provider
 .config(function($stateProvider) {
     $stateProvider
@@ -27,6 +27,11 @@ var myApp = angular.module('myApp', ['ui.router'])
     url:'/about',
     templateUrl: 'templates/about.html',
     controller: 'AboutController',
+  })
+  .state('contact', {
+    url:'/contact',
+    templateUrl: 'templates/contact.html',
+    controller: 'ContactController',
   })
 })
 
@@ -58,5 +63,35 @@ var myApp = angular.module('myApp', ['ui.router'])
 // About page controller: define $scope.about as a string
 .controller('AboutController', function($scope){
   $scope.about = "Here's some information about this page."
+})
+//Contact Me controller: does nothing really
+.controller('ContactController',function($scope, $firebaseAuth, $firebaseArray, $firebaseObject){
+  var ref = new Firebase('https://portfolio503.firebaseio.com/')
+  var messagesRef = ref.child("messages");
+  $scope.messages = $firebaseArray(messagesRef);
+  $scope.addMessageClick = false;
+
+  //adds a message to firebase
+  $scope.addMessage = function() {
+    $scope.messages.$add({
+      name:$scope.name,
+      message:preventScriptInjection($scope.message)
+    })
+    .then(function() {
+      $scope.clear();
+    });
+    $scope.addMessageClick = false;
+  }
+
+  //clears the input for the message form on the html page
+  $scope.clear = function() {
+    $scope.name = "";
+    $scope.message = "";
+  }
+
+  //used to prevent script injection for the textarea tag
+  var preventScriptInjection = function(html) {
+    return $($.parseHTML(html)).text();
+  }
 })
 

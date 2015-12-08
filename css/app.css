@@ -77,6 +77,10 @@ img {
     margin-left: -200px;
 }
 
+.messageContainer {
+    text-align: center;
+}
+
 /*Makes the footer fixed and stayed on the bottom */
 footer {
     color: white;
@@ -117,5 +121,8 @@ footer {
 	}
     #activities {
         font-size: 25px;
+    }
+    h3 {
+        font-size: 28px;
     }
 }
