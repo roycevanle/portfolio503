@@ -1,17 +1,16 @@
 <div class="container">
     <h1>Activities</h1><hr>
-    <p>Below are activities that I am currently active in for the school year of 2015-2016.</p>    
+    <p><h2>Below are activities that I am currently active in for the school year of 2015-2016! Click on the picture for more information.</h2></p>    
 </div>
 
 <div class="row">
     <div class="col s12 m12 l6" ng-repeat="activities in activities">
-        <div class="card medium">
+        <div class="center card medium blue-grey lighten-3">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="img/{{activities.Image}}">
             </div>
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">{{activities.Name}}<i class="material-icons right">more_vert</i></span>
-              <p>{{activities.Name}}</p>
+              <span id="activities" class="card-title activator grey-text text-darken-4">{{activities.Name}}<i class="material-icons right">more_vert</i></span>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">{{activities.Name}}<i class="material-icons right">close</i></span>
@@ -19,4 +18,9 @@
             </div>
         </div>
     </div>
+  <br></br>
+  <br></br>
+  <p>&nbsp;</p>
+  <br></br>
+  <p>&nbsp;</p>
 </div>

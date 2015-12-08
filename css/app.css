@@ -94,22 +94,28 @@ footer {
 /*Screens 768 and smaller, font changes and footer goes away */
 @media only screen and (max-width: 768px) {
 	h1 {
-		font-size: 20px;
+		font-size: 30px;
 	}
 	h2 {
-		font-size: 15px;
+		font-size: 20px;
 	}
 	footer {
         visibility: hidden;
     } 
+    #activities {
+        font-size: 18px;
+    }
 }
 
 /*Screens 768 and bigger font changes */
 @media screen and (min-width: 768px) {
 	h1 {
-		font-size: 50px;
+		font-size: 60px;
 	}
 	h2 {
-		font-size: 30px;
+		font-size: 35px;
 	}
+    #activities {
+        font-size: 25px;
+    }
 }
